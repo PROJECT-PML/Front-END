@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
-import { Card } from 'antd';
-import { Pagination } from 'antd';
+import { Card, Pagination} from 'antd';
+
 import { Router, Route, Link, browserHistory } from 'react-router';
 
 export default class PCNewsBlock extends React.Component {
@@ -21,6 +21,17 @@ export default class PCNewsBlock extends React.Component {
             .then(response => response.json())
             .then(json => this.setState({ news: json }));
     }
+
+    // handlePageClick = (data) => {
+    //     let selected = data.selected;
+    //     let offset = Math.ceil(selected * this.props.perPage);
+    
+    //     this.setState({offset: offset}, () => {
+    //       this.loadCommentsFromServer();
+    //     });
+    //   };
+
+      
     render() {
         const { news } = this.state;
             const newsList = news.length
@@ -44,7 +55,7 @@ export default class PCNewsBlock extends React.Component {
                     {newsList}
                 </ul>
             </Card>
-            <Pagination defaultCurrent={1} total={30}  />
+            <Pagination defaultCurrent={1} total={5} />
         </div>
         );
     };
