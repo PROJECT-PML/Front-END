@@ -60,7 +60,6 @@ class PCHeader extends React.Component {
 
 	handleSubmit(e)
 	{
-		//页面开始向 API 进行提交数据
 		e.preventDefault();
 		var myFetchOptions = {
 			method: 'GET'
@@ -68,8 +67,7 @@ class PCHeader extends React.Component {
 		var formData = this.props.form.getFieldsValue();
 		console.log(formData);
 		
-		//注册和登录api,根据不同的行为，获取不同的参数
-		fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=" + this.state.action
+		fetch("http://localhost:8080/Login" 
 		+ "&username="+formData.userName+"&password="+formData.password
 		+"&r_userName=" + formData.r_userName + "&r_password="
 		+ formData.r_password + "&r_confirmPassword="

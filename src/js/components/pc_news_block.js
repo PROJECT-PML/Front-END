@@ -16,8 +16,8 @@ export default class PCNewsBlock extends React.Component {
         var myFetchOptions = {
             method: 'GET'
         };
-        fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=" + this.props.type
-            + "&count=" + this.props.count, myFetchOptions)
+        fetch("http://loaclhost:8080/news/type=" + this.props.type
+            + "&offset=" + this.props.count, myFetchOptions)
             .then(response => response.json())
             .then(json => this.setState({ news: json }));
     }

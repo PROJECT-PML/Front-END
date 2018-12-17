@@ -36,13 +36,13 @@ export default class PCUserCenter extends React.Component {
             method: 'GET'
         };
 
-        fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getuc&userid=" + localStorage.userid, myFetchOptions)
+        fetch("http://localhost:8080/userid=" + localStorage.userid, myFetchOptions)
             .then(response => response.json())
             .then(json => {
                 this.setState({ usercollection: json });
             });
 
-        fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getusercomments&userid=" + localStorage.userid, myFetchOptions)
+        fetch("http://localhost:8080/comment_id=" + localStorage.userid, myFetchOptions)
             .then(response => response.json())
             .then(json => {
                 this.setState({ usercomments: json });
